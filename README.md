@@ -17,16 +17,16 @@ This project guides you through a Data Engineering journey involving the ETL (Ex
 
 To pull **Top 50 Indian Songs** data from the Spotify application, you need API keys (Client ID and Client Secret). Create an account on Spotify and obtain your API keys from the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
 
-Initially, the code was developed in Jupyter Notebook (`src="SpotifyData_ETL@jupy.ipynb"`), and later it was implemented as an AWS Lambda function.
+Initially, the code was developed in Jupyter Notebook `SpotifyData_ETL@jupy.ipynb`, and later it was implemented as an AWS Lambda function.
 
 ### Lambda Function Details:
-- The Lambda function does not include the built-in **Spotipy** package, so you need to add a layer by externally uploading the Spotipy package as a ZIP file (`src="spotipy_layer.zip"`).
+- The Lambda function does not include the built-in **Spotipy** package, so you need to add a layer by externally uploading the Spotipy package as a ZIP file (`spotipy_layer.zip`).
 - Similarly, the **Pandas** package is not available by default in Lambda but can be added as a layer in the AWS Layers section.
 
 ### Lambda Functions Created:
 1. **spotify-data-extract**: This function extracts data from the Spotify API and stores it in an S3 bucket as JSON files.
 2. **spotify-data-transform-load-s3**: This function transforms the data read from JSON files and stores the filtered data in the respective folders in CSV format.
-- Refer [SpotifyData_Extract.py](src/SpotifyData_Extract@lambda.py) and [SpotifyData_Transform.py](src/SpotifyData_Transform@lambda.py) for programming codes for both lambda functions.
+- Refer `SpotifyData_Extract@lambda.py` and `SpotifyData_Transform@lambda.py` for programming codes for both lambda functions.
 
 ### Functionality:
 - Create two folders: `raw_data` and `transformed_data` inside the S3 bucket (`spotify-data-etl-harsha`).
